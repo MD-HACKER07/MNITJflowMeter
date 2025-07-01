@@ -1,0 +1,7 @@
+include README.md
+include CHANGELOG.md
+include LICENSE
+include requirements.txt
+include requirements-gui.txt
+include requirements-dashboard.txt
+recursive-include src/mnitjflowmeter *.py

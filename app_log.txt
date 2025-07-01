@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "cicflowmeter_gui_new.py", line 21, in <module>
+    from attack_detection import AttackDetector
+ModuleNotFoundError: No module named 'attack_detection'
+[PYI-217413:ERROR] Failed to execute script 'cicflowmeter_gui_new' due to unhandled exception!

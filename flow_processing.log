@@ -1,0 +1,309 @@
+2025-06-20 12:46:37,409 - INFO - Processing test_traffic.pcap...
+2025-06-20 12:46:37,421 - INFO - Read 100 packets from test_traffic.pcap
+2025-06-20 12:46:37,421 - DEBUG - Created new flow: ('10.0.0.9', '192.168.1.4', 37967, 53, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:21')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.9', '192.168.1.4', 37967, 53, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:21')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.6', 65017, 443, '00:11:22:33:44:49', 'aa:bb:cc:dd:ee:50')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.6', 65017, 443, '00:11:22:33:44:49', 'aa:bb:cc:dd:ee:50')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.10', 18757, 68, '00:11:22:33:44:16', 'aa:bb:cc:dd:ee:94')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.10', 18757, 68, '00:11:22:33:44:16', 'aa:bb:cc:dd:ee:94')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.6', 26546, 53, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:61')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.6', 26546, 53, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:61')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.9', 41347, 80, '00:11:22:33:44:83', 'aa:bb:cc:dd:ee:24')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.9', 41347, 80, '00:11:22:33:44:83', 'aa:bb:cc:dd:ee:24')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.4', 36553, 123, '00:11:22:33:44:49', 'aa:bb:cc:dd:ee:68')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.4', 36553, 123, '00:11:22:33:44:49', 'aa:bb:cc:dd:ee:68')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.8', 16407, 67, '00:11:22:33:44:21', 'aa:bb:cc:dd:ee:25')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.8', 16407, 67, '00:11:22:33:44:21', 'aa:bb:cc:dd:ee:25')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.5', 41478, 53, '00:11:22:33:44:73', 'aa:bb:cc:dd:ee:67')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.5', 41478, 53, '00:11:22:33:44:73', 'aa:bb:cc:dd:ee:67')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.4', 20347, 53, '00:11:22:33:44:87', 'aa:bb:cc:dd:ee:78')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.4', 20347, 53, '00:11:22:33:44:87', 'aa:bb:cc:dd:ee:78')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.8', 16602, 443, '00:11:22:33:44:10', 'aa:bb:cc:dd:ee:45')
+2025-06-20 12:46:37,422 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.8', 16602, 443, '00:11:22:33:44:10', 'aa:bb:cc:dd:ee:45')
+2025-06-20 12:46:37,422 - DEBUG - Created new flow: ('10.0.0.8', '192.168.1.5', 40805, 443, '00:11:22:33:44:31', 'aa:bb:cc:dd:ee:99')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.8', '192.168.1.5', 40805, 443, '00:11:22:33:44:31', 'aa:bb:cc:dd:ee:99')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.9', 59220, 22, '00:11:22:33:44:16', 'aa:bb:cc:dd:ee:60')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.9', 59220, 22, '00:11:22:33:44:16', 'aa:bb:cc:dd:ee:60')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.3', '192.168.1.1', 20658, 53, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:38')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.3', '192.168.1.1', 20658, 53, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:38')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.7', 25430, 53, '00:11:22:33:44:78', 'aa:bb:cc:dd:ee:28')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.7', 25430, 53, '00:11:22:33:44:78', 'aa:bb:cc:dd:ee:28')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.7', '192.168.1.8', 50768, 123, '00:11:22:33:44:40', 'aa:bb:cc:dd:ee:27')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.7', '192.168.1.8', 50768, 123, '00:11:22:33:44:40', 'aa:bb:cc:dd:ee:27')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.9', '192.168.1.7', 53409, 443, '00:11:22:33:44:17', 'aa:bb:cc:dd:ee:57')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.9', '192.168.1.7', 53409, 443, '00:11:22:33:44:17', 'aa:bb:cc:dd:ee:57')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.5', 16718, 67, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:20')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.5', 16718, 67, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:20')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.4', '192.168.1.5', 14356, 68, '00:11:22:33:44:42', 'aa:bb:cc:dd:ee:91')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.4', '192.168.1.5', 14356, 68, '00:11:22:33:44:42', 'aa:bb:cc:dd:ee:91')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.8', '192.168.1.7', 10727, 53, '00:11:22:33:44:68', 'aa:bb:cc:dd:ee:65')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.8', '192.168.1.7', 10727, 53, '00:11:22:33:44:68', 'aa:bb:cc:dd:ee:65')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.2', 38818, 123, '00:11:22:33:44:79', 'aa:bb:cc:dd:ee:37')
+2025-06-20 12:46:37,423 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.2', 38818, 123, '00:11:22:33:44:79', 'aa:bb:cc:dd:ee:37')
+2025-06-20 12:46:37,423 - DEBUG - Created new flow: ('10.0.0.5', '192.168.1.9', 64447, 22, '00:11:22:33:44:71', 'aa:bb:cc:dd:ee:91')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.5', '192.168.1.9', 64447, 22, '00:11:22:33:44:71', 'aa:bb:cc:dd:ee:91')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.8', '192.168.1.6', 65208, 67, '00:11:22:33:44:26', 'aa:bb:cc:dd:ee:99')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.8', '192.168.1.6', 65208, 67, '00:11:22:33:44:26', 'aa:bb:cc:dd:ee:99')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.5', '192.168.1.7', 53676, 67, '00:11:22:33:44:20', 'aa:bb:cc:dd:ee:53')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.5', '192.168.1.7', 53676, 67, '00:11:22:33:44:20', 'aa:bb:cc:dd:ee:53')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.5', '192.168.1.3', 11964, 67, '00:11:22:33:44:85', 'aa:bb:cc:dd:ee:21')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.5', '192.168.1.3', 11964, 67, '00:11:22:33:44:85', 'aa:bb:cc:dd:ee:21')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.10', 3394, 53, '00:11:22:33:44:60', 'aa:bb:cc:dd:ee:26')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.10', 3394, 53, '00:11:22:33:44:60', 'aa:bb:cc:dd:ee:26')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.10', 52475, 123, '00:11:22:33:44:56', 'aa:bb:cc:dd:ee:18')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.10', 52475, 123, '00:11:22:33:44:56', 'aa:bb:cc:dd:ee:18')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.9', '192.168.1.9', 58263, 67, '00:11:22:33:44:84', 'aa:bb:cc:dd:ee:98')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.9', '192.168.1.9', 58263, 67, '00:11:22:33:44:84', 'aa:bb:cc:dd:ee:98')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.6', 16409, 22, '00:11:22:33:44:92', 'aa:bb:cc:dd:ee:98')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.6', 16409, 22, '00:11:22:33:44:92', 'aa:bb:cc:dd:ee:98')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.4', '192.168.1.5', 65437, 443, '00:11:22:33:44:71', 'aa:bb:cc:dd:ee:54')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.4', '192.168.1.5', 65437, 443, '00:11:22:33:44:71', 'aa:bb:cc:dd:ee:54')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.7', '192.168.1.5', 10821, 443, '00:11:22:33:44:98', 'aa:bb:cc:dd:ee:81')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.7', '192.168.1.5', 10821, 443, '00:11:22:33:44:98', 'aa:bb:cc:dd:ee:81')
+2025-06-20 12:46:37,424 - DEBUG - Created new flow: ('10.0.0.8', '192.168.1.2', 24695, 80, '00:11:22:33:44:37', 'aa:bb:cc:dd:ee:74')
+2025-06-20 12:46:37,424 - DEBUG - Added packet to flow: ('10.0.0.8', '192.168.1.2', 24695, 80, '00:11:22:33:44:37', 'aa:bb:cc:dd:ee:74')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.3', '192.168.1.7', 60014, 123, '00:11:22:33:44:35', 'aa:bb:cc:dd:ee:39')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.3', '192.168.1.7', 60014, 123, '00:11:22:33:44:35', 'aa:bb:cc:dd:ee:39')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.8', '192.168.1.6', 28962, 53, '00:11:22:33:44:70', 'aa:bb:cc:dd:ee:72')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.8', '192.168.1.6', 28962, 53, '00:11:22:33:44:70', 'aa:bb:cc:dd:ee:72')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.4', 51877, 68, '00:11:22:33:44:20', 'aa:bb:cc:dd:ee:43')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.4', 51877, 68, '00:11:22:33:44:20', 'aa:bb:cc:dd:ee:43')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.9', 26176, 67, '00:11:22:33:44:84', 'aa:bb:cc:dd:ee:18')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.9', 26176, 67, '00:11:22:33:44:84', 'aa:bb:cc:dd:ee:18')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.7', '192.168.1.8', 60166, 80, '00:11:22:33:44:50', 'aa:bb:cc:dd:ee:79')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.7', '192.168.1.8', 60166, 80, '00:11:22:33:44:50', 'aa:bb:cc:dd:ee:79')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.1', 9116, 67, '00:11:22:33:44:43', 'aa:bb:cc:dd:ee:62')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.1', 9116, 67, '00:11:22:33:44:43', 'aa:bb:cc:dd:ee:62')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.7', 54828, 53, '00:11:22:33:44:45', 'aa:bb:cc:dd:ee:37')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.7', 54828, 53, '00:11:22:33:44:45', 'aa:bb:cc:dd:ee:37')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.8', 3387, 443, '00:11:22:33:44:12', 'aa:bb:cc:dd:ee:69')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.8', 3387, 443, '00:11:22:33:44:12', 'aa:bb:cc:dd:ee:69')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.4', '192.168.1.5', 56090, 53, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:64')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.4', '192.168.1.5', 56090, 53, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:64')
+2025-06-20 12:46:37,425 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.2', 34212, 53, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:55')
+2025-06-20 12:46:37,425 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.2', 34212, 53, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:55')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.8', '192.168.1.1', 63461, 53, '00:11:22:33:44:60', 'aa:bb:cc:dd:ee:57')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.8', '192.168.1.1', 63461, 53, '00:11:22:33:44:60', 'aa:bb:cc:dd:ee:57')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.6', 43652, 67, '00:11:22:33:44:52', 'aa:bb:cc:dd:ee:89')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.6', 43652, 67, '00:11:22:33:44:52', 'aa:bb:cc:dd:ee:89')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.4', 36359, 67, '00:11:22:33:44:36', 'aa:bb:cc:dd:ee:11')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.4', 36359, 67, '00:11:22:33:44:36', 'aa:bb:cc:dd:ee:11')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.8', '192.168.1.10', 50550, 68, '00:11:22:33:44:34', 'aa:bb:cc:dd:ee:21')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.8', '192.168.1.10', 50550, 68, '00:11:22:33:44:34', 'aa:bb:cc:dd:ee:21')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.3', 44751, 68, '00:11:22:33:44:85', 'aa:bb:cc:dd:ee:79')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.3', 44751, 68, '00:11:22:33:44:85', 'aa:bb:cc:dd:ee:79')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.3', '192.168.1.6', 26934, 67, '00:11:22:33:44:23', 'aa:bb:cc:dd:ee:64')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.3', '192.168.1.6', 26934, 67, '00:11:22:33:44:23', 'aa:bb:cc:dd:ee:64')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.1', 5985, 80, '00:11:22:33:44:41', 'aa:bb:cc:dd:ee:48')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.1', 5985, 80, '00:11:22:33:44:41', 'aa:bb:cc:dd:ee:48')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.1', 54658, 68, '00:11:22:33:44:74', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.1', 54658, 68, '00:11:22:33:44:74', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.6', 41055, 22, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:11')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.6', 41055, 22, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:11')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.9', '192.168.1.7', 52320, 67, '00:11:22:33:44:58', 'aa:bb:cc:dd:ee:83')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.9', '192.168.1.7', 52320, 67, '00:11:22:33:44:58', 'aa:bb:cc:dd:ee:83')
+2025-06-20 12:46:37,426 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.9', 45330, 67, '00:11:22:33:44:69', 'aa:bb:cc:dd:ee:23')
+2025-06-20 12:46:37,426 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.9', 45330, 67, '00:11:22:33:44:69', 'aa:bb:cc:dd:ee:23')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.5', 52662, 80, '00:11:22:33:44:73', 'aa:bb:cc:dd:ee:80')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.5', 52662, 80, '00:11:22:33:44:73', 'aa:bb:cc:dd:ee:80')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.10', 62905, 53, '00:11:22:33:44:79', 'aa:bb:cc:dd:ee:64')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.10', 62905, 53, '00:11:22:33:44:79', 'aa:bb:cc:dd:ee:64')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.5', 56662, 80, '00:11:22:33:44:36', 'aa:bb:cc:dd:ee:95')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.5', 56662, 80, '00:11:22:33:44:36', 'aa:bb:cc:dd:ee:95')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.4', '192.168.1.10', 10371, 443, '00:11:22:33:44:28', 'aa:bb:cc:dd:ee:19')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.4', '192.168.1.10', 10371, 443, '00:11:22:33:44:28', 'aa:bb:cc:dd:ee:19')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.9', 35254, 123, '00:11:22:33:44:12', 'aa:bb:cc:dd:ee:86')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.9', 35254, 123, '00:11:22:33:44:12', 'aa:bb:cc:dd:ee:86')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.4', '192.168.1.4', 38097, 53, '00:11:22:33:44:27', 'aa:bb:cc:dd:ee:62')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.4', '192.168.1.4', 38097, 53, '00:11:22:33:44:27', 'aa:bb:cc:dd:ee:62')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.6', 45416, 53, '00:11:22:33:44:11', 'aa:bb:cc:dd:ee:55')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.6', 45416, 53, '00:11:22:33:44:11', 'aa:bb:cc:dd:ee:55')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.5', '192.168.1.6', 40701, 67, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:82')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.5', '192.168.1.6', 40701, 67, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:82')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.7', '192.168.1.4', 55246, 123, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:57')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.7', '192.168.1.4', 55246, 123, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:57')
+2025-06-20 12:46:37,427 - DEBUG - Created new flow: ('10.0.0.3', '192.168.1.10', 11220, 67, '00:11:22:33:44:32', 'aa:bb:cc:dd:ee:87')
+2025-06-20 12:46:37,427 - DEBUG - Added packet to flow: ('10.0.0.3', '192.168.1.10', 11220, 67, '00:11:22:33:44:32', 'aa:bb:cc:dd:ee:87')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.4', '192.168.1.7', 49006, 53, '00:11:22:33:44:13', 'aa:bb:cc:dd:ee:46')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.4', '192.168.1.7', 49006, 53, '00:11:22:33:44:13', 'aa:bb:cc:dd:ee:46')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.9', '192.168.1.2', 50082, 443, '00:11:22:33:44:76', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.9', '192.168.1.2', 50082, 443, '00:11:22:33:44:76', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.9', '192.168.1.6', 19100, 67, '00:11:22:33:44:39', 'aa:bb:cc:dd:ee:52')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.9', '192.168.1.6', 19100, 67, '00:11:22:33:44:39', 'aa:bb:cc:dd:ee:52')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.7', '192.168.1.9', 24995, 123, '00:11:22:33:44:61', 'aa:bb:cc:dd:ee:65')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.7', '192.168.1.9', 24995, 123, '00:11:22:33:44:61', 'aa:bb:cc:dd:ee:65')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.5', '192.168.1.10', 63898, 443, '00:11:22:33:44:32', 'aa:bb:cc:dd:ee:67')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.5', '192.168.1.10', 63898, 443, '00:11:22:33:44:32', 'aa:bb:cc:dd:ee:67')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.1', 61891, 123, '00:11:22:33:44:30', 'aa:bb:cc:dd:ee:91')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.1', 61891, 123, '00:11:22:33:44:30', 'aa:bb:cc:dd:ee:91')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.3', '192.168.1.8', 34145, 80, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:12')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.3', '192.168.1.8', 34145, 80, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:12')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.10', 12621, 53, '00:11:22:33:44:58', 'aa:bb:cc:dd:ee:88')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.10', 12621, 53, '00:11:22:33:44:58', 'aa:bb:cc:dd:ee:88')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.4', 23261, 53, '00:11:22:33:44:18', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.4', 23261, 53, '00:11:22:33:44:18', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.6', 12284, 80, '00:11:22:33:44:53', 'aa:bb:cc:dd:ee:47')
+2025-06-20 12:46:37,428 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.6', 12284, 80, '00:11:22:33:44:53', 'aa:bb:cc:dd:ee:47')
+2025-06-20 12:46:37,428 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.8', 55661, 53, '00:11:22:33:44:16', 'aa:bb:cc:dd:ee:51')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.8', 55661, 53, '00:11:22:33:44:16', 'aa:bb:cc:dd:ee:51')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.7', '192.168.1.8', 21486, 53, '00:11:22:33:44:39', 'aa:bb:cc:dd:ee:94')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.7', '192.168.1.8', 21486, 53, '00:11:22:33:44:39', 'aa:bb:cc:dd:ee:94')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.1', 56108, 80, '00:11:22:33:44:45', 'aa:bb:cc:dd:ee:15')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.1', 56108, 80, '00:11:22:33:44:45', 'aa:bb:cc:dd:ee:15')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.2', 43335, 22, '00:11:22:33:44:59', 'aa:bb:cc:dd:ee:25')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.2', 43335, 22, '00:11:22:33:44:59', 'aa:bb:cc:dd:ee:25')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.5', '192.168.1.8', 18743, 68, '00:11:22:33:44:60', 'aa:bb:cc:dd:ee:90')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.5', '192.168.1.8', 18743, 68, '00:11:22:33:44:60', 'aa:bb:cc:dd:ee:90')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.8', '192.168.1.2', 2231, 443, '00:11:22:33:44:74', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.8', '192.168.1.2', 2231, 443, '00:11:22:33:44:74', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.10', 63614, 53, '00:11:22:33:44:83', 'aa:bb:cc:dd:ee:44')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.10', 63614, 53, '00:11:22:33:44:83', 'aa:bb:cc:dd:ee:44')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.5', '192.168.1.4', 32590, 123, '00:11:22:33:44:90', 'aa:bb:cc:dd:ee:31')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.5', '192.168.1.4', 32590, 123, '00:11:22:33:44:90', 'aa:bb:cc:dd:ee:31')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.4', 29653, 123, '00:11:22:33:44:37', 'aa:bb:cc:dd:ee:22')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.4', 29653, 123, '00:11:22:33:44:37', 'aa:bb:cc:dd:ee:22')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.3', '192.168.1.7', 3454, 53, '00:11:22:33:44:72', 'aa:bb:cc:dd:ee:97')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.3', '192.168.1.7', 3454, 53, '00:11:22:33:44:72', 'aa:bb:cc:dd:ee:97')
+2025-06-20 12:46:37,429 - DEBUG - Created new flow: ('10.0.0.6', '192.168.1.3', 23304, 80, '00:11:22:33:44:58', 'aa:bb:cc:dd:ee:26')
+2025-06-20 12:46:37,429 - DEBUG - Added packet to flow: ('10.0.0.6', '192.168.1.3', 23304, 80, '00:11:22:33:44:58', 'aa:bb:cc:dd:ee:26')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.4', '192.168.1.1', 45635, 67, '00:11:22:33:44:93', 'aa:bb:cc:dd:ee:84')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.4', '192.168.1.1', 45635, 67, '00:11:22:33:44:93', 'aa:bb:cc:dd:ee:84')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.5', '192.168.1.9', 38377, 443, '00:11:22:33:44:92', 'aa:bb:cc:dd:ee:19')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.5', '192.168.1.9', 38377, 443, '00:11:22:33:44:92', 'aa:bb:cc:dd:ee:19')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.1', 13796, 67, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:39')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.1', 13796, 67, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:39')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.7', 23917, 123, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:96')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.7', 23917, 123, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:96')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.4', '192.168.1.5', 21956, 67, '00:11:22:33:44:44', 'aa:bb:cc:dd:ee:36')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.4', '192.168.1.5', 21956, 67, '00:11:22:33:44:44', 'aa:bb:cc:dd:ee:36')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.7', '192.168.1.6', 59527, 22, '00:11:22:33:44:84', 'aa:bb:cc:dd:ee:26')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.7', '192.168.1.6', 59527, 22, '00:11:22:33:44:84', 'aa:bb:cc:dd:ee:26')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.5', 17759, 67, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:18')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.5', 17759, 67, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:18')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.7', '192.168.1.10', 46558, 68, '00:11:22:33:44:81', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.7', '192.168.1.10', 46558, 68, '00:11:22:33:44:81', 'aa:bb:cc:dd:ee:58')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.9', '192.168.1.2', 5694, 67, '00:11:22:33:44:98', 'aa:bb:cc:dd:ee:54')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.9', '192.168.1.2', 5694, 67, '00:11:22:33:44:98', 'aa:bb:cc:dd:ee:54')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.10', 36333, 53, '00:11:22:33:44:15', 'aa:bb:cc:dd:ee:94')
+2025-06-20 12:46:37,430 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.10', 36333, 53, '00:11:22:33:44:15', 'aa:bb:cc:dd:ee:94')
+2025-06-20 12:46:37,430 - DEBUG - Created new flow: ('10.0.0.9', '192.168.1.3', 12354, 80, '00:11:22:33:44:50', 'aa:bb:cc:dd:ee:62')
+2025-06-20 12:46:37,431 - DEBUG - Added packet to flow: ('10.0.0.9', '192.168.1.3', 12354, 80, '00:11:22:33:44:50', 'aa:bb:cc:dd:ee:62')
+2025-06-20 12:46:37,431 - DEBUG - Created new flow: ('10.0.0.10', '192.168.1.2', 24574, 443, '00:11:22:33:44:21', 'aa:bb:cc:dd:ee:59')
+2025-06-20 12:46:37,431 - DEBUG - Added packet to flow: ('10.0.0.10', '192.168.1.2', 24574, 443, '00:11:22:33:44:21', 'aa:bb:cc:dd:ee:59')
+2025-06-20 12:46:37,431 - DEBUG - Created new flow: ('10.0.0.3', '192.168.1.8', 12056, 67, '00:11:22:33:44:71', 'aa:bb:cc:dd:ee:86')
+2025-06-20 12:46:37,431 - DEBUG - Added packet to flow: ('10.0.0.3', '192.168.1.8', 12056, 67, '00:11:22:33:44:71', 'aa:bb:cc:dd:ee:86')
+2025-06-20 12:46:37,431 - DEBUG - Created new flow: ('10.0.0.7', '192.168.1.5', 18565, 53, '00:11:22:33:44:63', 'aa:bb:cc:dd:ee:29')
+2025-06-20 12:46:37,431 - DEBUG - Added packet to flow: ('10.0.0.7', '192.168.1.5', 18565, 53, '00:11:22:33:44:63', 'aa:bb:cc:dd:ee:29')
+2025-06-20 12:46:37,431 - DEBUG - Created new flow: ('10.0.0.3', '192.168.1.5', 15466, 123, '00:11:22:33:44:54', 'aa:bb:cc:dd:ee:84')
+2025-06-20 12:46:37,431 - DEBUG - Added packet to flow: ('10.0.0.3', '192.168.1.5', 15466, 123, '00:11:22:33:44:54', 'aa:bb:cc:dd:ee:84')
+2025-06-20 12:46:37,431 - DEBUG - Created new flow: ('10.0.0.2', '192.168.1.10', 60361, 53, '00:11:22:33:44:63', 'aa:bb:cc:dd:ee:81')
+2025-06-20 12:46:37,431 - DEBUG - Added packet to flow: ('10.0.0.2', '192.168.1.10', 60361, 53, '00:11:22:33:44:63', 'aa:bb:cc:dd:ee:81')
+2025-06-20 12:46:37,431 - DEBUG - Created new flow: ('10.0.0.1', '192.168.1.5', 25462, 53, '00:11:22:33:44:80', 'aa:bb:cc:dd:ee:66')
+2025-06-20 12:46:37,431 - DEBUG - Added packet to flow: ('10.0.0.1', '192.168.1.5', 25462, 53, '00:11:22:33:44:80', 'aa:bb:cc:dd:ee:66')
+2025-06-20 12:46:37,431 - DEBUG - Garbage collection started. Current flows: 100
+2025-06-20 12:46:37,431 - DEBUG - Garbage collection finished. Remaining flows: 100
+2025-06-20 12:46:37,431 - DEBUG - Processed 100 packets
+2025-06-20 12:46:37,431 - DEBUG - Garbage collection started. Current flows: 100
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.9', '192.168.1.4', 37967, 53, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:21'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.6', 65017, 443, '00:11:22:33:44:49', 'aa:bb:cc:dd:ee:50'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.10', 18757, 68, '00:11:22:33:44:16', 'aa:bb:cc:dd:ee:94'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.6', 26546, 53, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:61'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.9', 41347, 80, '00:11:22:33:44:83', 'aa:bb:cc:dd:ee:24'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.4', 36553, 123, '00:11:22:33:44:49', 'aa:bb:cc:dd:ee:68'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.8', 16407, 67, '00:11:22:33:44:21', 'aa:bb:cc:dd:ee:25'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.5', 41478, 53, '00:11:22:33:44:73', 'aa:bb:cc:dd:ee:67'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.4', 20347, 53, '00:11:22:33:44:87', 'aa:bb:cc:dd:ee:78'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,431 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.8', 16602, 443, '00:11:22:33:44:10', 'aa:bb:cc:dd:ee:45'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.8', '192.168.1.5', 40805, 443, '00:11:22:33:44:31', 'aa:bb:cc:dd:ee:99'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.9', 59220, 22, '00:11:22:33:44:16', 'aa:bb:cc:dd:ee:60'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.3', '192.168.1.1', 20658, 53, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:38'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.7', 25430, 53, '00:11:22:33:44:78', 'aa:bb:cc:dd:ee:28'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.7', '192.168.1.8', 50768, 123, '00:11:22:33:44:40', 'aa:bb:cc:dd:ee:27'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.9', '192.168.1.7', 53409, 443, '00:11:22:33:44:17', 'aa:bb:cc:dd:ee:57'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.5', 16718, 67, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:20'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.4', '192.168.1.5', 14356, 68, '00:11:22:33:44:42', 'aa:bb:cc:dd:ee:91'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.8', '192.168.1.7', 10727, 53, '00:11:22:33:44:68', 'aa:bb:cc:dd:ee:65'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.2', 38818, 123, '00:11:22:33:44:79', 'aa:bb:cc:dd:ee:37'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.5', '192.168.1.9', 64447, 22, '00:11:22:33:44:71', 'aa:bb:cc:dd:ee:91'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.8', '192.168.1.6', 65208, 67, '00:11:22:33:44:26', 'aa:bb:cc:dd:ee:99'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.5', '192.168.1.7', 53676, 67, '00:11:22:33:44:20', 'aa:bb:cc:dd:ee:53'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.5', '192.168.1.3', 11964, 67, '00:11:22:33:44:85', 'aa:bb:cc:dd:ee:21'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.10', 3394, 53, '00:11:22:33:44:60', 'aa:bb:cc:dd:ee:26'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.10', 52475, 123, '00:11:22:33:44:56', 'aa:bb:cc:dd:ee:18'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.9', '192.168.1.9', 58263, 67, '00:11:22:33:44:84', 'aa:bb:cc:dd:ee:98'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.6', 16409, 22, '00:11:22:33:44:92', 'aa:bb:cc:dd:ee:98'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.4', '192.168.1.5', 65437, 443, '00:11:22:33:44:71', 'aa:bb:cc:dd:ee:54'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.7', '192.168.1.5', 10821, 443, '00:11:22:33:44:98', 'aa:bb:cc:dd:ee:81'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.8', '192.168.1.2', 24695, 80, '00:11:22:33:44:37', 'aa:bb:cc:dd:ee:74'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.3', '192.168.1.7', 60014, 123, '00:11:22:33:44:35', 'aa:bb:cc:dd:ee:39'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.8', '192.168.1.6', 28962, 53, '00:11:22:33:44:70', 'aa:bb:cc:dd:ee:72'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.4', 51877, 68, '00:11:22:33:44:20', 'aa:bb:cc:dd:ee:43'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.9', 26176, 67, '00:11:22:33:44:84', 'aa:bb:cc:dd:ee:18'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.7', '192.168.1.8', 60166, 80, '00:11:22:33:44:50', 'aa:bb:cc:dd:ee:79'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.1', 9116, 67, '00:11:22:33:44:43', 'aa:bb:cc:dd:ee:62'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.7', 54828, 53, '00:11:22:33:44:45', 'aa:bb:cc:dd:ee:37'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.8', 3387, 443, '00:11:22:33:44:12', 'aa:bb:cc:dd:ee:69'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.4', '192.168.1.5', 56090, 53, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:64'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.2', 34212, 53, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:55'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.8', '192.168.1.1', 63461, 53, '00:11:22:33:44:60', 'aa:bb:cc:dd:ee:57'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.6', 43652, 67, '00:11:22:33:44:52', 'aa:bb:cc:dd:ee:89'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.4', 36359, 67, '00:11:22:33:44:36', 'aa:bb:cc:dd:ee:11'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.8', '192.168.1.10', 50550, 68, '00:11:22:33:44:34', 'aa:bb:cc:dd:ee:21'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.3', 44751, 68, '00:11:22:33:44:85', 'aa:bb:cc:dd:ee:79'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.3', '192.168.1.6', 26934, 67, '00:11:22:33:44:23', 'aa:bb:cc:dd:ee:64'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.1', 5985, 80, '00:11:22:33:44:41', 'aa:bb:cc:dd:ee:48'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.1', 54658, 68, '00:11:22:33:44:74', 'aa:bb:cc:dd:ee:58'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.6', 41055, 22, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:11'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.9', '192.168.1.7', 52320, 67, '00:11:22:33:44:58', 'aa:bb:cc:dd:ee:83'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.9', 45330, 67, '00:11:22:33:44:69', 'aa:bb:cc:dd:ee:23'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.5', 52662, 80, '00:11:22:33:44:73', 'aa:bb:cc:dd:ee:80'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.10', 62905, 53, '00:11:22:33:44:79', 'aa:bb:cc:dd:ee:64'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.5', 56662, 80, '00:11:22:33:44:36', 'aa:bb:cc:dd:ee:95'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.4', '192.168.1.10', 10371, 443, '00:11:22:33:44:28', 'aa:bb:cc:dd:ee:19'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,432 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.9', 35254, 123, '00:11:22:33:44:12', 'aa:bb:cc:dd:ee:86'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.4', '192.168.1.4', 38097, 53, '00:11:22:33:44:27', 'aa:bb:cc:dd:ee:62'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.6', 45416, 53, '00:11:22:33:44:11', 'aa:bb:cc:dd:ee:55'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.5', '192.168.1.6', 40701, 67, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:82'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.7', '192.168.1.4', 55246, 123, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:57'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.3', '192.168.1.10', 11220, 67, '00:11:22:33:44:32', 'aa:bb:cc:dd:ee:87'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.4', '192.168.1.7', 49006, 53, '00:11:22:33:44:13', 'aa:bb:cc:dd:ee:46'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.9', '192.168.1.2', 50082, 443, '00:11:22:33:44:76', 'aa:bb:cc:dd:ee:58'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.9', '192.168.1.6', 19100, 67, '00:11:22:33:44:39', 'aa:bb:cc:dd:ee:52'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.7', '192.168.1.9', 24995, 123, '00:11:22:33:44:61', 'aa:bb:cc:dd:ee:65'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.5', '192.168.1.10', 63898, 443, '00:11:22:33:44:32', 'aa:bb:cc:dd:ee:67'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.1', 61891, 123, '00:11:22:33:44:30', 'aa:bb:cc:dd:ee:91'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.3', '192.168.1.8', 34145, 80, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:12'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.10', 12621, 53, '00:11:22:33:44:58', 'aa:bb:cc:dd:ee:88'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.4', 23261, 53, '00:11:22:33:44:18', 'aa:bb:cc:dd:ee:58'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.6', 12284, 80, '00:11:22:33:44:53', 'aa:bb:cc:dd:ee:47'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.8', 55661, 53, '00:11:22:33:44:16', 'aa:bb:cc:dd:ee:51'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.7', '192.168.1.8', 21486, 53, '00:11:22:33:44:39', 'aa:bb:cc:dd:ee:94'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.1', 56108, 80, '00:11:22:33:44:45', 'aa:bb:cc:dd:ee:15'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.2', 43335, 22, '00:11:22:33:44:59', 'aa:bb:cc:dd:ee:25'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.5', '192.168.1.8', 18743, 68, '00:11:22:33:44:60', 'aa:bb:cc:dd:ee:90'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.8', '192.168.1.2', 2231, 443, '00:11:22:33:44:74', 'aa:bb:cc:dd:ee:58'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.10', 63614, 53, '00:11:22:33:44:83', 'aa:bb:cc:dd:ee:44'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.5', '192.168.1.4', 32590, 123, '00:11:22:33:44:90', 'aa:bb:cc:dd:ee:31'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.4', 29653, 123, '00:11:22:33:44:37', 'aa:bb:cc:dd:ee:22'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.3', '192.168.1.7', 3454, 53, '00:11:22:33:44:72', 'aa:bb:cc:dd:ee:97'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.6', '192.168.1.3', 23304, 80, '00:11:22:33:44:58', 'aa:bb:cc:dd:ee:26'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.4', '192.168.1.1', 45635, 67, '00:11:22:33:44:93', 'aa:bb:cc:dd:ee:84'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.5', '192.168.1.9', 38377, 443, '00:11:22:33:44:92', 'aa:bb:cc:dd:ee:19'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.1', 13796, 67, '00:11:22:33:44:48', 'aa:bb:cc:dd:ee:39'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.7', 23917, 123, '00:11:22:33:44:82', 'aa:bb:cc:dd:ee:96'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.4', '192.168.1.5', 21956, 67, '00:11:22:33:44:44', 'aa:bb:cc:dd:ee:36'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.7', '192.168.1.6', 59527, 22, '00:11:22:33:44:84', 'aa:bb:cc:dd:ee:26'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.5', 17759, 67, '00:11:22:33:44:22', 'aa:bb:cc:dd:ee:18'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.7', '192.168.1.10', 46558, 68, '00:11:22:33:44:81', 'aa:bb:cc:dd:ee:58'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.9', '192.168.1.2', 5694, 67, '00:11:22:33:44:98', 'aa:bb:cc:dd:ee:54'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.10', 36333, 53, '00:11:22:33:44:15', 'aa:bb:cc:dd:ee:94'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.9', '192.168.1.3', 12354, 80, '00:11:22:33:44:50', 'aa:bb:cc:dd:ee:62'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.10', '192.168.1.2', 24574, 443, '00:11:22:33:44:21', 'aa:bb:cc:dd:ee:59'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.3', '192.168.1.8', 12056, 67, '00:11:22:33:44:71', 'aa:bb:cc:dd:ee:86'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.7', '192.168.1.5', 18565, 53, '00:11:22:33:44:63', 'aa:bb:cc:dd:ee:29'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.3', '192.168.1.5', 15466, 123, '00:11:22:33:44:54', 'aa:bb:cc:dd:ee:84'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.2', '192.168.1.10', 60361, 53, '00:11:22:33:44:63', 'aa:bb:cc:dd:ee:81'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - ERROR - Error processing flow (('10.0.0.1', '192.168.1.5', 25462, 53, '00:11:22:33:44:80', 'aa:bb:cc:dd:ee:66'), 0): 'EDecimal' object cannot be interpreted as an integer
+2025-06-20 12:46:37,433 - DEBUG - Garbage collection finished. Remaining flows: 100
+2025-06-20 12:46:37,433 - INFO - Processing completed. Output written to output/flows.csv
+2025-06-20 12:46:37,433 - ERROR - No flow data was generated

@@ -1,0 +1,931 @@
+"""
+Real-time Network Flow Analysis Dashboard
+
+This module provides interactive, real-time visualization of network flow data
+extracted by MNITJFlowMeter. It uses Plotly Dash to create a modern web-based
+dashboard for monitoring network traffic.
+
+Author: MNIT SIP
+Organization: Malaviya National Institute of Technology Jaipur
+License: MIT
+"""
+
+import os
+import time
+import threading
+import pandas as pd
+import numpy as np
+import plotly.graph_objects as go
+import dash
+from dash import dcc, html, Input, Output, State, callback, no_update
+from dash.exceptions import PreventUpdate
+import dash_bootstrap_components as dbc
+from dash.dependencies import Input, Output, State
+from dash.dash_table import DataTable
+import dash_daq as daq
+from datetime import datetime, timedelta
+
+# Import the flow extractor
+from gui_flow_extractor_full import FullFlowExtractor
+
+import threading
+import webbrowser
+from werkzeug.serving import make_server
+
+# Set the template directory for PyInstaller
+if getattr(sys, 'frozen', False):
+    # Running in a PyInstaller bundle
+    template_dir = sys._MEIPASS
+    assets_folder = os.path.join(template_dir, 'assets')
+else:
+    # Running in a normal Python environment
+    template_dir = os.path.dirname(os.path.abspath(__file__))
+    assets_folder = 'assets'
+
+# Initialize the Dash app with a modern theme
+app = dash.Dash(
+    __name__,
+    external_stylesheets=[dbc.themes.DARKLY],
+    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
+    assets_folder=assets_folder
+)
+app.title = "MNITJFlowMeter - Real-time Network Analysis"
+server = app.server
+
+# Disable Flask debug and reloader in production
+server.debug = False
+server.use_reloader = False
+
+# Global server instance
+flask_server = None
+
+def run_server(port=8050):
+    """Run the Flask server"""
+    global flask_server
+    try:
+        flask_server = make_server('0.0.0.0', port, server, threaded=True)
+        flask_server.serve_forever()
+    except Exception as e:
+        print(f"Server error: {e}")
+    finally:
+        if flask_server:
+            flask_server.shutdown()
+
+def start_server(port=8050):
+    """Start the server in a separate thread"""
+    thread = threading.Thread(target=run_server, args=(port,), daemon=True)
+    thread.start()
+    # Give server time to start
+    import time
+    time.sleep(2)
+    # Open in default browser
+    webbrowser.open(f'http://localhost:{port}')
+    return thread
+
+# Global variables for data sharing between threads
+flow_data = pd.DataFrame()
+flow_data_lock = threading.Lock()
+pcap_file = ""
+should_stop = False
+
+# Color scheme for the dashboard
+COLORS = {
+    'background': '#222222',
+    'text': '#e0e0e0',
+    'card_bg': '#2d2d2d',
+    'plot_bg': '#1e1e1e',
+    'grid': '#444444',
+    'accent': '#3498db',
+    'positive': '#2ecc71',
+    'negative': '#e74c3c',
+    'warning': '#f39c12',
+}
+
+def create_layout():
+    return dbc.Container(
+        [
+            # Header
+            dbc.Row(
+                dbc.Col(
+                    [
+                        html.H1("MNITJFlowMeter - Real-time Network Flow Analysis", className="mb-2"),
+                        html.P("Developed by MNIT SIP", className="text-muted"),
+                        html.Hr(className="my-4")
+                    ],
+                    width=12
+                )
+            ),
+            
+            # Main content
+            dbc.Row(
+                [
+                    # Left side - File selection and controls
+                    dbc.Col(
+                        [
+                            # Controls Card
+                            dbc.Card(
+                                [
+                                    dbc.CardBody([
+                                        html.H4("Controls", className="card-title"),
+                                        html.Div([
+                                            dcc.Upload(
+                                                id='upload-pcap',
+                                                children=html.Div([
+                                                    'Drag and Drop or ', 
+                                                    html.A('Select PCAP File')
+                                                ]),
+                                                style={
+                                                    'width': '100%',
+                                                    'height': '60px',
+                                                    'lineHeight': '60px',
+                                                    'borderWidth': '1px',
+                                                    'borderStyle': 'dashed',
+                                                    'borderRadius': '5px',
+                                                    'textAlign': 'center',
+                                                    'margin': '10px 0',
+                                                    'cursor': 'pointer'
+                                                },
+                                                multiple=False
+                                            ),
+                                            html.Div(id='filename-display', className='mt-2'),
+                                            dbc.Button("Start Analysis", 
+                                                      id="start-button", 
+                                                      color="primary", 
+                                                      className="me-2 mt-2",
+                                                      disabled=True),
+                                            dbc.Button("Stop", 
+                                                      id="stop-button", 
+                                                      color="danger", 
+                                                      className="mt-2",
+                                                      disabled=True),
+                                            html.Div([
+                                                html.Label("Update Interval (seconds):", className="mt-3"),
+                                                dcc.Slider(
+                                                    id='update-interval',
+                                                    min=1,
+                                                    max=10,
+                                                    step=1,
+                                                    value=2,
+                                                    marks={i: str(i) for i in range(1, 11)},
+                                                    tooltip={"placement": "bottom", "always_visible": True}
+                                                )
+                                            ])
+                                        ])
+                                    ])
+                                ],
+                                className="mb-4"
+                            ),
+                            # Flow Statistics Card
+                            dbc.Card(
+                                [
+                                    dbc.CardBody(
+                                        [
+                                            html.H4("Flow Statistics", className="card-title"),
+                                            html.Div(id="flow-stats", className="flow-stats")
+                                        ]
+                                    )
+                                ]
+                            )
+                        ], 
+                        md=3
+                    ),
+                    
+                    # Right side - Main content with tabs
+                    dbc.Col(
+                        [
+                            dbc.Tabs(
+                                [
+                                    # Overview Tab
+                                    dbc.Tab(
+                                        label="Overview", 
+                                        children=[
+                                            dbc.Row(
+                                                dbc.Col(
+                                                    dbc.Card(
+                                                        [
+                                                            dbc.CardBody(
+                                                                [
+                                                                    dcc.Graph(
+                                                                        id="flow-rate-graph", 
+                                                                        config={'displayModeBar': False}
+                                                                    )
+                                                                ]
+                                                            )
+                                                        ], 
+                                                        className="mb-4"
+                                                    ),
+                                                    width=12
+                                                )
+                                            ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        dbc.Card(
+                                                            [
+                                                                dbc.CardBody(
+                                                                    [
+                                                                        dcc.Graph(
+                                                                            id="packet-size-dist",
+                                                                            config={'displayModeBar': False}
+                                                                        )
+                                                                    ]
+                                                                )
+                                                            ],
+                                                            className="mb-4"
+                                                        ),
+                                                        md=6
+                                                    ),
+                                                    dbc.Col(
+                                                        dbc.Card(
+                                                            [
+                                                                dbc.CardBody(
+                                                                    [
+                                                                        dcc.Graph(
+                                                                            id="protocol-dist",
+                                                                            config={'displayModeBar': False}
+                                                                        )
+                                                                    ]
+                                                                )
+                                                            ],
+                                                            className="mb-4"
+                                                        ),
+                                                        md=6
+                                                    )
+                                                ]
+                                            )
+                                        ]
+                                    ),
+                                    
+                                    # Detailed Analysis Tab
+                                    dbc.Tab(
+                                        label="Detailed Analysis", 
+                                        children=[
+                                            dbc.Row(
+                                                dbc.Col(
+                                                    dbc.Card(
+                                                        [
+                                                            dbc.CardBody(
+                                                                [
+                                                                    dcc.Graph(
+                                                                        id="duration-vs-bytes",
+                                                                        config={'displayModeBar': True}
+                                                                    )
+                                                                ]
+                                                            )
+                                                        ],
+                                                        className="mb-4"
+                                                    ),
+                                                    width=12
+                                                )
+                                            ),
+                                            dbc.Row(
+                                                [
+                                                    dbc.Col(
+                                                        dbc.Card(
+                                                            [
+                                                                dbc.CardBody(
+                                                                    [
+                                                                        dcc.Graph(
+                                                                            id="packet-timing",
+                                                                            config={'displayModeBar': True}
+                                                                        )
+                                                                    ]
+                                                                )
+                                                            ],
+                                                            className="mb-4"
+                                                        ),
+                                                        md=6
+                                                    ),
+                                                    dbc.Col(
+                                                        dbc.Card(
+                                                            [
+                                                                dbc.CardBody(
+                                                                    [
+                                                                        dcc.Graph(
+                                                                            id="flag-distribution",
+                                                                            config={'displayModeBar': True}
+                                                                        )
+                                                                    ]
+                                                                )
+                                                            ],
+                                                            className="mb-4"
+                                                        ),
+                                                        md=6
+                                                    )
+                                                ]
+                                            )
+                                        ]
+                                    ),
+                                    
+                                    # Raw Data Tab
+                                    dbc.Tab(
+                                        label="Flow Data", 
+                                        children=[
+                                            dbc.Card(
+                                                [
+                                                    dbc.CardBody(
+                                                        [
+                                                            html.Div(
+                                                                [
+                                                                    dbc.Input(
+                                                                        id="filter-input", 
+                                                                        placeholder="Filter flows...", 
+                                                                        className="mb-3"
+                                                                    ),
+                                                                    DataTable(
+                                                                        id='flow-table',
+                                                                        columns=[],
+                                                                        data=[],
+                                                                        page_size=10,
+                                                                        style_table={'overflowX': 'auto'},
+                                                                        style_cell={
+                                                                            'textAlign': 'left',
+                                                                            'padding': '8px',
+                                                                            'overflow': 'hidden',
+                                                                            'textOverflow': 'ellipsis',
+                                                                            'maxWidth': 0,
+                                                                        },
+                                                                        style_header={
+                                                                            'backgroundColor': COLORS['card_bg'],
+                                                                            'fontWeight': 'bold',
+                                                                            'color': COLORS['text']
+                                                                        },
+                                                                        style_data={
+                                                                            'backgroundColor': COLORS['background'],
+                                                                            'color': COLORS['text']
+                                                                        },
+                                                                        style_data_conditional=[
+                                                                            {
+                                                                                'if': {'row_index': 'odd'},
+                                                                                'backgroundColor': 'rgb(50, 50, 50)'
+                                                                            }
+                                                                        ]
+                                                                    )
+                                                                ]
+                                                            )
+                                                        ]
+                                                    )
+                                                ]
+                                            )
+                                        ]
+                                    )
+                                ]
+                            )
+                        ],
+                        md=9
+                    )
+                ]
+            ),
+            
+            # Hidden div to trigger callbacks
+            dcc.Store(id='flow-data-store'),
+            dcc.Interval(
+                id='interval-component',
+                interval=1*1000,  # in milliseconds
+                n_intervals=0
+            ),
+            
+            # Footer
+            html.Footer(
+                [
+                    html.Hr(),
+                    html.Div(
+                        [
+                            html.Span("MNITJFlowMeter ", className="text-muted"),
+                            html.Span("•", className="mx-2"),
+                            html.Span("Developed by MNIT SIP", className="text-muted"),
+                            html.Span("•", className="mx-2"),
+                            html.Span("Malaviya National Institute of Technology Jaipur", className="text-muted"),
+                            html.Br(),
+                            html.Span(id="last-updated", className="text-muted")
+                        ], 
+                        className="py-3 text-center"
+                    )
+                ], 
+                className="mt-5"
+            )
+        ], 
+        fluid=True, 
+        className="p-4"
+    )
+
+# Set the layout
+app.layout = create_layout()
+
+# Helper function to process PCAP file in a separate thread
+def process_pcap_file(pcap_path):
+    global flow_data, should_stop, pcap_file
+    
+    print(f"[DEBUG] Starting PCAP processing for: {pcap_path}")
+    
+    # Verify the file exists and is not empty
+    if not os.path.exists(pcap_path):
+        print(f"[ERROR] PCAP file not found: {pcap_path}")
+        return
+        
+    if os.path.getsize(pcap_path) == 0:
+        print(f"[ERROR] PCAP file is empty: {pcap_path}")
+        return
+    
+    try:
+        print("[DEBUG] Initializing FullFlowExtractor...")
+        extractor = FullFlowExtractor()
+        print(f"[DEBUG] Starting analysis of {pcap_path}...")
+        
+        # Process the PCAP file with progress updates
+        def progress_callback(current, total):
+            if current % 100 == 0:  # Print progress every 100 packets
+                print(f"[DEBUG] Processed {current}/{total} packets")
+        
+        # Process the PCAP file
+        extractor.process_pcap(pcap_path, progress_callback=progress_callback)
+        
+        # Get the flow data
+        with flow_data_lock:
+            print("[DEBUG] Extracting flow data to DataFrame...")
+            flow_data = extractor.get_flow_dataframe()
+            if flow_data is not None:
+                print(f"[DEBUG] Extracted {len(flow_data)} flow records")
+                print("[DEBUG] Sample flow data columns:", flow_data.columns.tolist())
+                if not flow_data.empty:
+                    print("[DEBUG] First flow record:", flow_data.iloc[0].to_dict())
+            else:
+                print("[WARNING] No flow data was extracted from the PCAP file")
+            
+    except Exception as e:
+        import traceback
+        error_msg = f"Error processing PCAP file: {e}\n{traceback.format_exc()}"
+        print(f"[ERROR] {error_msg}")
+    finally:
+        should_stop = False
+        pcap_file = ""
+        print("[DEBUG] PCAP processing completed")
+
+# Callback for file upload
+@app.callback(
+    [Output('filename-display', 'children'),
+     Output('start-button', 'disabled'),
+     Output('stop-button', 'disabled'),
+     Output('upload-pcap', 'style')],
+    [Input('upload-pcap', 'contents')],
+    [State('upload-pcap', 'filename'),
+     State('upload-pcap', 'last_modified')]
+)
+def update_output(contents, filename, last_modified):
+    if contents is not None and filename is not None:
+        try:
+            # Create a temporary directory if it doesn't exist
+            upload_dir = os.path.join(os.getcwd(), 'uploads')
+            os.makedirs(upload_dir, exist_ok=True)
+            
+            # Save the uploaded file
+            global pcap_file
+            pcap_file = os.path.join(upload_dir, filename)
+            
+            # Decode the base64 content
+            content_type, content_string = contents.split(',')
+            import base64
+            with open(pcap_file, 'wb') as f:
+                f.write(base64.b64decode(content_string))
+                
+            print(f"Saved uploaded file to: {pcap_file}")
+            
+            # Verify the file exists and has content
+            if not os.path.exists(pcap_file) or os.path.getsize(pcap_file) == 0:
+                raise Exception("Failed to save uploaded file or file is empty")
+                
+            return (
+                f"Selected: {filename}",
+                False,  # Enable start button
+                True,   # Disable stop button initially
+                {'borderColor': COLORS['accent'], 'borderWidth': '2px'}
+            )
+        except Exception as e:
+            print(f"Error saving uploaded file: {e}")
+            return (
+                f"Error: {str(e)}",
+                True,
+                True,
+                {'borderColor': COLORS['negative'], 'borderWidth': '2px'}
+            )
+    return "No file selected", True, True, {}
+
+# Helper function to get the file extension
+import os
+
+def get_file_extension(filename):
+    _, ext = os.path.splitext(filename)
+    return ext.lower()
+
+# Callback to start/stop analysis
+@app.callback(
+    [Output('interval-component', 'disabled', allow_duplicate=True),
+     Output('start-button', 'disabled', allow_duplicate=True),
+     Output('stop-button', 'disabled', allow_duplicate=True)],
+    [Input('start-button', 'n_clicks'),
+     Input('stop-button', 'n_clicks')],
+    prevent_initial_call=True
+)
+def control_analysis(start_clicks, stop_clicks):
+    ctx = dash.callback_context
+    if not ctx.triggered:
+        raise dash.exceptions.PreventUpdate
+    
+    global should_stop
+    
+    button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    
+    if button_id == 'start-button' and start_clicks:
+        should_stop = False
+        # Start the processing in a separate thread
+        thread = threading.Thread(target=process_pcap_file, args=(pcap_file,))
+        thread.daemon = True
+        thread.start()
+        return False, True, False  # Enable interval, disable start, enable stop
+    
+    elif button_id == 'stop-button' and stop_clicks:
+        should_stop = True
+        return True, False, True  # Disable interval, enable start, disable stop
+    
+    raise dash.exceptions.PreventUpdate
+
+# Callback to update the dashboard
+@app.callback(
+    [Output('flow-rate-graph', 'figure'),
+     Output('packet-size-dist', 'figure'),
+     Output('protocol-dist', 'figure'),
+     Output('duration-vs-bytes', 'figure'),
+     Output('packet-timing', 'figure'),
+     Output('flag-distribution', 'figure'),
+     Output('flow-table', 'columns'),
+     Output('flow-table', 'data'),
+     Output('flow-stats', 'children'),
+     Output('last-updated', 'children')],
+    [Input('interval-component', 'n_intervals'),
+     Input('filter-input', 'value'),
+     Input('flow-data-store', 'data')],
+    prevent_initial_call=True
+)
+def update_dashboard(n, filter_text, flow_data_store):
+    global flow_data
+    
+    with flow_data_lock:
+        if flow_data_store is not None:
+            flow_data = flow_data_store
+        current_data = flow_data.copy()
+    
+    if current_data.empty:
+        return [go.Figure()] * 6 + [[], [], "No data available", f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"]
+    
+    # Apply filter if any
+    if filter_text:
+        mask = current_data.astype(str).apply(lambda x: x.str.contains(filter_text, case=False, na=False)).any(axis=1)
+        current_data = current_data[mask]
+    
+    # 1. Flow Rate Over Time
+    if 'timestamp' in current_data.columns:
+        current_data['timestamp'] = pd.to_datetime(current_data['timestamp'], unit='s')
+        flow_rate = current_data.set_index('timestamp').resample('1s').size()
+        flow_rate_fig = go.Figure()
+        flow_rate_fig.add_trace(go.Scatter(
+            x=flow_rate.index, 
+            y=flow_rate.values,
+            mode='lines+markers',
+            name='Flow Rate',
+            line=dict(color=COLORS['accent'], width=2),
+            marker=dict(size=6, color=COLORS['accent'])
+        ))
+        flow_rate_fig.update_layout(
+            title='Flow Rate Over Time',
+            xaxis_title='Time',
+            yaxis_title='Flows per Second',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text']),
+            margin=dict(l=20, r=20, t=40, b=20),
+            xaxis=dict(gridcolor=COLORS['grid']),
+            yaxis=dict(gridcolor=COLORS['grid'])
+        )
+    else:
+        flow_rate_fig = go.Figure()
+        flow_rate_fig.update_layout(
+            title='Flow Rate Over Time (No Timestamp Data)',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text'])
+        )
+    
+    # 2. Packet Size Distribution
+    if 'totlen_fwd_pkts' in current_data.columns and 'totlen_bwd_pkts' in current_data.columns:
+        packet_sizes = pd.concat([
+            current_data['totlen_fwd_pkts'].rename('size'),
+            current_data['totlen_bwd_pkts'].rename('size')
+        ])
+        packet_size_fig = go.Figure()
+        packet_size_fig.add_trace(go.Histogram(
+            x=packet_sizes,
+            nbinsx=50,
+            marker_color=COLORS['accent'],
+            opacity=0.75,
+            name='Packet Sizes'
+        ))
+        packet_size_fig.update_layout(
+            title='Packet Size Distribution',
+            xaxis_title='Packet Size (bytes)',
+            yaxis_title='Count',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text']),
+            margin=dict(l=20, r=20, t=40, b=20),
+            xaxis=dict(gridcolor=COLORS['grid']),
+            yaxis=dict(gridcolor=COLORS['grid'], type='log')
+        )
+    else:
+        packet_size_fig = go.Figure()
+        packet_size_fig.update_layout(
+            title='Packet Size Distribution (No Data)',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text'])
+        )
+    
+    # 3. Protocol Distribution
+    if 'protocol' in current_data.columns:
+        protocol_counts = current_data['protocol'].value_counts().reset_index()
+        protocol_counts.columns = ['protocol', 'count']
+        
+        # Map protocol numbers to names
+        protocol_map = {6: 'TCP', 17: 'UDP', 1: 'ICMP', 2: 'IGMP', 89: 'OSPF'}
+        protocol_counts['protocol_name'] = protocol_counts['protocol'].map(protocol_map).fillna('Other')
+        
+        protocol_fig = go.Figure()
+        protocol_fig.add_trace(go.Pie(
+            labels=protocol_counts['protocol_name'],
+            values=protocol_counts['count'],
+            hole=0.4,
+            marker_colors=[COLORS['accent'], COLORS['positive'], COLORS['warning'], 
+                          COLORS['negative'], '#9b59b6', '#e67e22']
+        ))
+        protocol_fig.update_layout(
+            title='Protocol Distribution',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text']),
+            margin=dict(l=20, r=20, t=40, b=20),
+            showlegend=True
+        )
+    else:
+        protocol_fig = go.Figure()
+        protocol_fig.update_layout(
+            title='Protocol Distribution (No Data)',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text'])
+        )
+    
+    # 4. Duration vs Bytes Scatter Plot
+    if 'flow_duration' in current_data.columns and 'totlen_fwd_pkts' in current_data.columns:
+        duration_vs_bytes = go.Figure()
+        duration_vs_bytes.add_trace(go.Scatter(
+            x=current_data['flow_duration'],
+            y=current_data['totlen_fwd_pkts'],
+            mode='markers',
+            name='Forward Bytes',
+            marker=dict(
+                color=COLORS['accent'],
+                size=8,
+                opacity=0.7,
+                line=dict(width=1, color='DarkSlateGrey')
+            )
+        ))
+        
+        if 'totlen_bwd_pkts' in current_data.columns:
+            duration_vs_bytes.add_trace(go.Scatter(
+                x=current_data['flow_duration'],
+                y=current_data['totlen_bwd_pkts'],
+                mode='markers',
+                name='Backward Bytes',
+                marker=dict(
+                    color=COLORS['positive'],
+                    size=8,
+                    opacity=0.7,
+                    line=dict(width=1, color='DarkSlateGrey')
+                )
+            ))
+        
+        duration_vs_bytes.update_layout(
+            title='Flow Duration vs Bytes Transferred',
+            xaxis_title='Flow Duration (seconds)',
+            yaxis_title='Bytes Transferred',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text']),
+            margin=dict(l=20, r=20, t=40, b=20),
+            xaxis=dict(gridcolor=COLORS['grid'], type='log'),
+            yaxis=dict(gridcolor=COLORS['grid'], type='log'),
+            legend=dict(
+                orientation="h",
+                yanchor="bottom",
+                y=1.02,
+                xanchor="right",
+                x=1
+            )
+        )
+    else:
+        duration_vs_bytes = go.Figure()
+        duration_vs_bytes.update_layout(
+            title='Flow Duration vs Bytes (No Data)',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text'])
+        )
+    
+    # 5. Packet Timing Analysis
+    if 'fwd_iat_mean' in current_data.columns and 'bwd_iat_mean' in current_data.columns:
+        packet_timing = go.Figure()
+        
+        # Forward IAT
+        packet_timing.add_trace(go.Box(
+            y=current_data['fwd_iat_mean'],
+            name='Forward IAT',
+            boxpoints='all',
+            jitter=0.3,
+            pointpos=-1.8,
+            marker_color=COLORS['accent'],
+            line_color=COLORS['accent'],
+            boxmean=True
+        ))
+        
+        # Backward IAT
+        packet_timing.add_trace(go.Box(
+            y=current_data['bwd_iat_mean'],
+            name='Backward IAT',
+            boxpoints='all',
+            jitter=0.3,
+            pointpos=-1.8,
+            marker_color=COLORS['positive'],
+            line_color=COLORS['positive'],
+            boxmean=True
+        ))
+        
+        packet_timing.update_layout(
+            title='Packet Inter-Arrival Time (IAT) Analysis',
+            yaxis_title='Inter-Arrival Time (seconds)',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text']),
+            margin=dict(l=20, r=20, t=40, b=20),
+            yaxis=dict(gridcolor=COLORS['grid'], type='log'),
+            showlegend=True
+        )
+    else:
+        packet_timing = go.Figure()
+        packet_timing.update_layout(
+            title='Packet Timing Analysis (No Data)',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text'])
+        )
+    
+    # 6. TCP Flag Distribution
+    flag_columns = ['fin_flag_cnt', 'syn_flag_cnt', 'rst_flag_cnt', 
+                   'psh_flag_cnt', 'ack_flag_cnt', 'urg_flag_cnt']
+    
+    if all(col in current_data.columns for col in flag_columns):
+        flag_counts = current_data[flag_columns].sum().reset_index()
+        flag_counts.columns = ['flag', 'count']
+        
+        # Map flag names to full names
+        flag_map = {
+            'fin_flag_cnt': 'FIN',
+            'syn_flag_cnt': 'SYN',
+            'rst_flag_cnt': 'RST',
+            'psh_flag_cnt': 'PSH',
+            'ack_flag_cnt': 'ACK',
+            'urg_flag_cnt': 'URG'
+        }
+        flag_counts['flag'] = flag_counts['flag'].map(flag_map)
+        
+        flag_fig = go.Figure()
+        flag_fig.add_trace(go.Bar(
+            x=flag_counts['flag'],
+            y=flag_counts['count'],
+            marker_color=[COLORS['accent'], COLORS['positive'], COLORS['negative'], 
+                         COLORS['warning'], '#9b59b6', '#e67e22'],
+            opacity=0.8
+        ))
+        
+        flag_fig.update_layout(
+            title='TCP Flag Distribution',
+            xaxis_title='TCP Flag',
+            yaxis_title='Count',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text']),
+            margin=dict(l=20, r=20, t=40, b=20),
+            xaxis=dict(gridcolor=COLORS['grid']),
+            yaxis=dict(gridcolor=COLORS['grid'])
+        )
+    else:
+        flag_fig = go.Figure()
+        flag_fig.update_layout(
+            title='TCP Flag Distribution (No Data)',
+            plot_bgcolor=COLORS['plot_bg'],
+            paper_bgcolor=COLORS['card_bg'],
+            font=dict(color=COLORS['text'])
+        )
+    
+    # 7. Flow Table
+    if not current_data.empty:
+        # Select only the most important columns for display
+        display_columns = [
+            'src_ip', 'src_port', 'dst_ip', 'dst_port', 'protocol',
+            'flow_duration', 'tot_fwd_pkts', 'tot_bwd_pkts',
+            'totlen_fwd_pkts', 'totlen_bwd_pkts', 'flow_byts_s'
+        ]
+        
+        # Filter to only include columns that exist in the dataframe
+        display_columns = [col for col in display_columns if col in current_data.columns]
+        
+        # Create columns for the table
+        columns = [{"name": col, "id": col} for col in display_columns]
+        
+        # Format the data for display
+        table_data = current_data[display_columns].copy()
+        
+        # Format numeric columns
+        if 'flow_duration' in table_data.columns:
+            table_data['flow_duration'] = table_data['flow_duration'].round(6)
+        
+        if 'flow_byts_s' in table_data.columns:
+            table_data['flow_byts_s'] = table_data['flow_byts_s'].round(2)
+        
+        # Convert to list of dictionaries for the table
+        try:
+            if hasattr(table_data, 'to_dict'):
+                data = table_data.to_dict(orient='records')
+            else:
+                # Fallback for numpy arrays or other iterables
+                data = [dict(zip(display_columns, row)) for row in table_data]
+        except Exception as e:
+            print(f"Error converting table data: {e}")
+            data = []
+    else:
+        columns = []
+        data = []
+    
+    # 8. Flow Statistics
+    if not current_data.empty:
+        stats = []
+        
+        # Basic stats
+        stats.append(html.H5("Flow Summary", className="mt-3"))
+        stats.append(html.P(f"Total Flows: {len(current_data)}"))
+        
+        if 'flow_duration' in current_data.columns:
+            stats.append(html.P(f"Avg. Duration: {current_data['flow_duration'].mean():.4f} sec"))
+        
+        if 'tot_fwd_pkts' in current_data.columns and 'tot_bwd_pkts' in current_data.columns:
+            total_pkts = current_data['tot_fwd_pkts'].sum() + current_data['tot_bwd_pkts'].sum()
+            stats.append(html.P(f"Total Packets: {total_pkts:,}"))
+        
+        if 'totlen_fwd_pkts' in current_data.columns and 'totlen_bwd_pkts' in current_data.columns:
+            total_bytes = current_data['totlen_fwd_pkts'].sum() + current_data['totlen_bwd_pkts'].sum()
+            stats.append(html.P(f"Total Bytes: {total_bytes:,}"))
+        
+        # Protocol distribution
+        if 'protocol' in current_data.columns:
+            stats.append(html.H5("Protocols", className="mt-3"))
+            protocol_counts = current_data['protocol'].value_counts()
+            for proto, count in protocol_counts.items():
+                proto_name = {6: 'TCP', 17: 'UDP', 1: 'ICMP'}.get(proto, f'Proto {proto}')
+                stats.append(html.P(f"{proto_name}: {count}"))
+        
+        # Top talkers
+        if 'src_ip' in current_data.columns:
+            stats.append(html.H5("Top Source IPs", className="mt-3"))
+            top_src = current_data['src_ip'].value_counts().head(3)
+            for ip, count in top_src.items():
+                stats.append(html.P(f"{ip}: {count} flows"))
+        
+    else:
+        stats = [html.P("No flow data available")]
+    
+    last_updated = f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+    
+    return [
+        flow_rate_fig, packet_size_fig, protocol_fig, 
+        duration_vs_bytes, packet_timing, flag_fig,
+        columns, data, stats, last_updated
+    ]
+
+# Parse command line arguments
+if __name__ == '__main__':
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Run the MNITJFlowMeter Real-time Analysis Dashboard')
+    parser.add_argument('--port', type=int, default=8050, help='Port to run the server on')
+    args = parser.parse_args()
+    
+    print(f"Starting server on port {args.port}")
+    app.run(debug=True, host='localhost', port=args.port)

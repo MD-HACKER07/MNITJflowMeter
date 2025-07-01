@@ -1,0 +1,23 @@
+# Core dependencies
+numpy>=1.24.0
+scipy>=1.10.0
+scapy>=2.5.0
+requests>=2.31.0
+pytest>=7.4.0
+
+# GUI dependencies
+PyQt6>=6.0.0
+PyQt6-Qt6>=6.0.0
+PyQt6-sip>=13.0.0
+
+# Data processing
+pandas>=1.3.0
+pyqtgraph>=0.12.0
+matplotlib>=3.4.0
+
+# Build tools
+pyinstaller>=4.0.0
+
+# Utilities
+tqdm>=4.60.0
+python-dateutil>=2.8.0

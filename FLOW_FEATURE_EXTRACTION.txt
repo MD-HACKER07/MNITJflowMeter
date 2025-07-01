@@ -1,0 +1,153 @@
+CICFlowMeter - Network Flow Feature Extraction
+============================================
+
+This document explains in simple terms how CICFlowMeter extracts features from network traffic.
+
+1. What are Network Flows?
+-------------------------
+A network flow is a sequence of network packets sharing common characteristics, typically:
+- Same source and destination IP addresses
+- Same source and destination ports
+- Same protocol (TCP/UDP)
+- Within a specific time window
+
+2. Basic Flow Identification
+---------------------------
+CICFlowMeter identifies flows using a 5-tuple:
+1. Source IP address
+2. Destination IP address
+3. Source port
+4. Destination port
+5. Protocol (TCP/UDP)
+
+3. Feature Extraction Process
+---------------------------
+For each flow, CICFlowMeter extracts various features that can be categorized as:
+
+A. Basic Features:
+-----------------
+1. Duration - How long the flow lasted
+2. Protocol - TCP, UDP, etc.
+3. Source/Destination IP and Port
+4. Total packets in each direction
+5. Total bytes in each direction
+
+B. Time-based Features:
+----------------------
+1. Flow duration (end time - start time)
+2. Packet arrival times (inter-arrival times)
+3. Flow active/idle times
+4. Packet rate (packets per second)
+5. Byte rate (bytes per second)
+
+C. Packet Length Statistics:
+--------------------------
+1. Min, max, mean, and standard deviation of packet sizes
+2. Total bytes in forward/backward direction
+3. Packet length variance
+4. Average packet size
+
+D. TCP-specific Features (if applicable):
+--------------------------------------
+1. TCP flags (SYN, ACK, FIN, RST, etc.)
+2. Window size
+3. TCP options
+4. Retransmission counts
+5. Out-of-order packets
+
+E. Behavioral Features:
+----------------------
+1. Number of packets in forward/backward direction
+2. Bytes per packet statistics
+3. Flow IAT (Inter-Arrival Time) statistics
+4. Flow PSH flags count
+5. Flow URG flags count
+
+4. How Features are Calculated
+-----------------------------
+1. Packet Capture:
+   - Network packets are captured using libraries like libpcap
+   - Each packet is processed as it arrives
+
+2. Flow Creation:
+   - For each packet, extract 5-tuple
+   - Create new flow if no matching flow exists
+   - Add packet to existing flow if match found
+
+3. Feature Calculation:
+   - Basic counters (packet counts, byte counts) are incremented
+   - Timestamps are recorded for time-based features
+   - Packet sizes are recorded for statistical features
+   - TCP flags are recorded for protocol-specific features
+
+4. Flow Export:
+   - When a flow times out or ends (e.g., FIN/RST for TCP)
+   - All features are calculated and formatted
+   - Flow record is written to output (CSV, database, etc.)
+
+5. Common Features in Detail
+--------------------------
+1. Flow Duration:
+   - End time minus start time of the flow
+   - Measured in microseconds
+
+2. Flow Bytes/s:
+   - Total bytes in flow divided by duration
+   - Indicates bandwidth usage
+
+3. Flow Packets/s:
+   - Total packets divided by duration
+   - Shows packet rate
+
+4. Flow IAT (Inter-Arrival Time):
+   - Time between consecutive packets
+   - Mean, max, min, and standard deviation are calculated
+
+5. Forward/Backward Features:
+   - Separate statistics for each direction
+   - Useful for detecting asymmetric traffic patterns
+
+6. Common Use Cases
+------------------
+1. Network Intrusion Detection
+2. Traffic Classification
+3. Anomaly Detection
+4. Network Monitoring
+5. Quality of Service (QoS) Analysis
+
+7. Example Flow Record
+---------------------
+[Flow Start Time] 2025-06-20 13:30:45.123456
+[Duration] 1.234567 seconds
+[Protocol] TCP
+[Source] 192.168.1.100:54321
+[Destination] 203.0.113.5:80
+[Packets] 15 (10 forward, 5 backward)
+[Bytes] 10240 (8192 forward, 2048 backward)
+[Flags] SYN, ACK, PSH, FIN
+[Packet Sizes] min=60, max=1500, mean=682.67, std=512.34
+
+8. Tips for Effective Use
+------------------------
+1. Choose appropriate timeouts for flow expiration
+2. Consider both directions of communication
+3. Normalize features when using for machine learning
+4. Pay attention to protocol-specific behaviors
+5. Consider both packet counts and byte counts
+
+9. Common Challenges
+------------------
+1. Handling encrypted traffic
+2. Dealing with packet loss
+3. Managing memory for long-lived flows
+4. Processing high-speed networks
+5. Distinguishing between similar flows
+
+10. Additional Resources
+----------------------
+- CICFlowMeter Documentation
+- Network Flow Analysis Books
+- RFC 3954 (Cisco NetFlow)
+- Network Security Monitoring Resources
+
+This document provides a high-level overview. For implementation details, please refer to the source code and academic papers on network flow analysis.

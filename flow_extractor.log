@@ -1,0 +1,4 @@
+2025-06-20 12:48:05,556 - INFO - Processing test_traffic.pcap...
+2025-06-20 12:48:05,568 - INFO - Read 100 packets from test_traffic.pcap
+2025-06-20 12:48:05,574 - INFO - Processing completed. Found 100 flows.
+2025-06-20 12:48:05,574 - INFO - Flow statistics written to output/flow_stats.csv

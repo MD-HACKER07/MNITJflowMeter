@@ -1,0 +1,33 @@
+FROM python:3.12-slim
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libgl1-mesa-glx \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy only the necessary files
+COPY requirements.txt .
+COPY cicflowmeter_gui_new.py .
+COPY icon.ico .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install PyInstaller
+RUN pip install --no-cache-dir pyinstaller
+
+# Build the application
+RUN pyinstaller --clean --noconfirm --windowed --onefile \
+    --icon=icon.ico \
+    --name=CICFlowMeter \
+    --add-data="icon.ico:." \
+    --exclude-module=_tkinter \
+    --exclude-module=matplotlib.tests \
+    --exclude-module=numpy.random._examples \
+    cicflowmeter_gui_new.py
+
+# The built executable will be in /app/dist
